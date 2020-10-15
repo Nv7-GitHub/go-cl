@@ -14,7 +14,7 @@ func (ctx *Context) CreateImage(flags MemFlag, imageFormat ImageFormat, imageDes
 	desc := imageDesc.toCl()
 	var dataPtr unsafe.Pointer
 	if data != nil {
-		dataPtr = unsafe.Pointer(&data /*[0]*/)
+		dataPtr = unsafe.Pointer(&data[0])
 	}
 	var err C.cl_int
 	clBuffer := C.clCreateImage(ctx.clContext, C.cl_mem_flags(flags), &format, &desc, dataPtr, &err)
