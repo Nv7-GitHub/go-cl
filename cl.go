@@ -18,6 +18,7 @@ package cl
 
 // #include "cl.h"
 // #cgo darwin LDFLAGS: -framework OpenCL
+// #cgo !darwin LDFLAGS: -L . -lOpenCL
 import "C"
 import "errors"
 
